@@ -355,8 +355,28 @@ button.next:hover {
 /* ========================================= */
 .products {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
+}
+
+/* Desktop: 3 كروت */
+@media (min-width: 992px) {
+  .products {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Tablet: 2 كارت */
+@media (min-width: 768px) and (max-width: 991px) {
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile: 1 كارت */
+@media (max-width: 767px) {
+  .products {
+    grid-template-columns: 1fr;
+  }
 }
 
 .product-card {
@@ -449,6 +469,13 @@ button.next:hover {
   flex: none;
   width: 50%;
   background-color: #85d496ff;
+
+  @media (max-width: 767px) {
+    #collections > .col-12 {
+      max-width: 100% !important;
+      flex: 0 0 100% !important;
+    }
+  }
 }
 /* ========================================= */
 /*              MODAL / POPUP                */
