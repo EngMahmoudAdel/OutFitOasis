@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login & Registration Form</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="cont">
+      <!-- Sign In -->
+      <div class="form sign-in">
+        <h2>Sign In</h2>
+        <label>
+          <span>Email Address</span>
+          <input type="email" id="signin-email" />
+          <span class="error-msg" id="error-signin-email"></span>
+        </label>
+        <label>
+          <span>Password</span>
+          <input type="password" id="signin-password" />
+          <span class="error-msg" id="error-signin-password"></span>
+        </label>
+        <button class="submit" id="signin-btn" type="button">Sign In</button>
+      </div>
+
+      <!-- Sign Up -->
+      <div class="sub-cont">
+        <div class="img">
+          <div class="img-text m-up">
+            <h1>New here?</h1>
+            <p>Sign up and discover</p>
+          </div>
+          <div class="img-text m-in">
+            <h1>One of us?</h1>
+            <p>Just sign in</p>
+          </div>
+          <div class="img-btn">
+            <span class="m-up">Sign Up</span>
+            <span class="m-in">Sign In</span>
+          </div>
+        </div>
+
+        <div class="form sign-up">
+          <h2>Sign Up</h2>
+          <label>
+            <span>Name</span>
+            <input type="text" id="signup-name" />
+            <span class="error-msg" id="error-name"></span>
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" id="signup-email" />
+            <span class="error-msg" id="error-email"></span>
+          </label>
+          <label>
+            <span>Password</span>
+            <input type="password" id="signup-password" />
+            <span class="error-msg" id="error-password"></span>
+          </label>
+          <label>
+            <span>Confirm Password</span>
+            <input type="password" id="signup-password-confirm" />
+            <span class="error-msg" id="error-password-confirm"></span>
+          </label>
+          <button type="button" id="signup-btn" class="submit">
+            Sign Up Now
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <!-- Main Script -->
+    <script type="module" src="main.js"></script>
+  </body>
+</html>

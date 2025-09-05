@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SignIn & SignUp</title>
+    <link rel="stylesheet" href="assets/css/SignIn.module.css" />
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-V3E5nZs+I0u5k8u/hbWdrT8ybZJb9F2Dc1bF0rXH0kK4Jtq+F3h0z4b2tZXxK2QK"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="forms-container">
+        <div class="signin-signup">
+          <!-- Sign In Form -->
+          <form action="" class="sign-in-form">
+            <h2 class="title">Sign In</h2>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input type="text" placeholder="Username" id="signin-email" />
+              <span class="error-msg" id="error-signin-email"></span>
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input
+                type="password"
+                placeholder="Password"
+                id="signin-password"
+              />
+              <span class="error-msg" id="error-signin-password"></span>
+            </div>
+            <input
+              type="button"
+              value="Login"
+              class="btn solid"
+              id="signin-btn"
+            />
+          </form>
+
+          <!-- Sign Up Form -->
+          <form action="" class="sign-up-form">
+            <h2 class="title">Sign Up</h2>
+            <div class="input-field">
+              <i class="fas fa-user"></i>
+              <input type="text" placeholder="Username" id="signup-name" />
+              <span class="error-msg" id="error-name"></span>
+            </div>
+            <div class="input-field">
+              <i class="fas fa-envelope"></i>
+              <input type="email" placeholder="Email" id="signup-email" />
+              <span class="error-msg" id="error-email"></span>
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input
+                type="password"
+                placeholder="Password"
+                id="signup-password"
+              />
+              <span class="error-msg" id="error-password"></span>
+            </div>
+            <div class="input-field">
+              <i class="fas fa-lock"></i>
+              <input
+                type="password"
+                placeholder="Confirm Password"
+                id="signup-password-confirm"
+              />
+              <span class="error-msg" id="error-password-confirm"></span>
+            </div>
+            <input
+              type="button"
+              value="Sign Up"
+              class="btn solid"
+              id="signup-btn"
+            />
+          </form>
+        </div>
+      </div>
+
+      <!-- Panels -->
+      <!-- Panels -->
+      <div class="panels-container">
+        <div class="panel left-panel">
+          <div class="content">
+            <h3>New here?</h3>
+            <p>
+              Welcome to our store! Create an account to start shopping and
+              enjoy exclusive offers.
+            </p>
+            <button class="btn transparent" id="sign-up-btn">Sign Up</button>
+          </div>
+          <img src="./img/log.svg" class="image" alt="Sign Up Illustration" />
+        </div>
+
+        <div class="panel right-panel">
+          <div class="content">
+            <h3>Already a member?</h3>
+            <p>
+              Sign in to access your account, track your orders, and continue
+              shopping with ease.
+            </p>
+            <button class="btn transparent" id="sign-in-btn">Sign In</button>
+          </div>
+          <img
+            src="./img/register.svg"
+            class="image"
+            alt="Sign In Illustration"
+          />
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap JS Bundle (includes Popper) -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-XO4ZqBd1Zs95cKjY6qUq/N0A1r3GwU5U2qv56DJ5IQ+RIk1k2t5tR3LRv4x2iq+5"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Firebase SDKs -->
+    <script type="module" src="./assets/JS/main.js"></script>
+  </body>
+</html>
