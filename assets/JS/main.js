@@ -160,71 +160,78 @@ function setupModal() {
 
 // Sign Up
 const signUpForm = document.querySelector(".sign-up-form");
-const signUpBtn =
-  signUpForm.querySelector('input[type="submit"], input[type="button"]') ||
-  signUpForm.querySelector(".btn");
+if (signUpForm) {
+  const signUpBtn =
+    signUpForm.querySelector('input[type="submit"], input[type="button"]') ||
+    signUpForm.querySelector(".btn");
 
-signUpBtn.addEventListener("click", async () => {
-  const name = signUpForm
-    .querySelector('input[placeholder="Username"]')
-    .value.trim();
-  const email = signUpForm
-    .querySelector('input[placeholder="Email"]')
-    .value.trim();
-  const password = signUpForm.querySelector(
-    'input[placeholder="Password"]'
-  ).value;
-  const confirmPassword = signUpForm.querySelector(
-    'input[placeholder="Confirm Password"]'
-  ).value;
+  signUpBtn.addEventListener("click", async () => {
+    const name = signUpForm
+      .querySelector('input[placeholder="Username"]')
+      .value.trim();
+    const email = signUpForm
+      .querySelector('input[placeholder="Email"]')
+      .value.trim();
+    const password = signUpForm.querySelector(
+      'input[placeholder="Password"]'
+    ).value;
+    const confirmPassword = signUpForm.querySelector(
+      'input[placeholder="Confirm Password"]'
+    ).value;
 
-  if (!validateSignUp(name, email, password, confirmPassword, signUpForm))
-    return;
+    if (!validateSignUp(name, email, password, confirmPassword, signUpForm))
+      return;
 
-  try {
-    const user = await signUp(name, email, password);
-    alert(`✅ Account created successfully: ${user.email}`);
-    signUpForm.reset();
-  } catch (error) {
-    showError(
-      signUpForm.querySelector('input[placeholder="Email"]'),
-      error.message
-    );
-  }
-});
+    try {
+      const user = await signUp(name, email, password);
+      alert(`✅ Account created successfully: ${user.email}`);
+      signUpForm.reset();
+    } catch (error) {
+      showError(
+        signUpForm.querySelector('input[placeholder="Email"]'),
+        error.message
+      );
+    }
+  });
+}
 
 // Sign In
 const signInForm = document.querySelector(".sign-in-form");
-const signInBtn =
-  signInForm.querySelector('input[type="submit"], input[type="button"]') ||
-  signInForm.querySelector(".btn");
 
-signInBtn.addEventListener("click", async () => {
-  const email = signInForm
-    .querySelector('input[placeholder="Username"]')
-    .value.trim();
-  const password = signInForm.querySelector(
-    'input[placeholder="Password"]'
-  ).value;
+if (signInForm) {
+  const signInBtn =
+    signInForm.querySelector('input[type="submit"], input[type="button"]') ||
+    signInForm.querySelector(".btn");
 
-  if (!validateSignIn(email, password, signInForm)) return;
+  if (signInBtn) {
+    signInBtn.addEventListener("click", async () => {
+      const email = signInForm
+        .querySelector('input[placeholder="Username"]')
+        .value.trim();
+      const password = signInForm.querySelector(
+        'input[placeholder="Password"]'
+      ).value;
 
-  try {
-    const user = await signIn(email, password);
-    localStorage.setItem("userEmail", user.email);
-    alert(`✅ Logged in successfully: ${user.email}`);
-    signInForm.reset();
-    window.location.href = "index.html";
-  } catch (error) {
-    const input = signInForm.querySelector('input[placeholder="Password"]');
-    let msg = "Email or password is incorrect. Please try again";
-    if (error.code === "auth/user-not-found")
-      msg = "Email not found. Please sign up first";
-    else if (error.code === "auth/wrong-password")
-      msg = "Incorrect password. Please try again";
-    showError(input, msg);
+      if (!validateSignIn(email, password, signInForm)) return;
+
+      try {
+        const user = await signIn(email, password);
+        localStorage.setItem("userEmail", user.email);
+        alert(`✅ Logged in successfully: ${user.email}`);
+        signInForm.reset();
+        window.location.href = "index.html";
+      } catch (error) {
+        const input = signInForm.querySelector('input[placeholder="Password"]');
+        let msg = "Email or password is incorrect. Please try again";
+        if (error.code === "auth/user-not-found")
+          msg = "Email not found. Please sign up first";
+        else if (error.code === "auth/wrong-password")
+          msg = "Incorrect password. Please try again";
+        showError(input, msg);
+      }
+    });
   }
-});
+}
 
 // Switch panels
 document.getElementById("sign-up-btn")?.addEventListener("click", () => {
@@ -250,9 +257,14 @@ const sign_in_btn = document.querySelector("#sign-in-btn");
 const sign_up_btn = document.querySelector("#sign-up-btn");
 const container = document.querySelector(".container");
 
-sign_up_btn.addEventListener("click", () =>
-  container.classList.add("sign-up-mode")
-);
-sign_in_btn.addEventListener("click", () =>
-  container.classList.remove("sign-up-mode")
-);
+if (sign_up_btn && container) {
+  sign_up_btn.addEventListener("click", () =>
+    container.classList.add("sign-up-mode")
+  );
+}
+
+if (sign_in_btn && container) {
+  sign_in_btn.addEventListener("click", () =>
+    container.classList.remove("sign-up-mode")
+  );
+}
